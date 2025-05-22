@@ -1,17 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 
 export default function Background() {
-  const pathname = usePathname()
-  const basePath = process.env.NODE_ENV === 'development' ? '' : '/lv-lawfirm-landing'
-  
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
       {/* Background Image */}
       <Image
-        src={`${basePath}/images/background-img.avif`}
+        src="/images/background-img.avif"
         alt="Background"
         fill
         priority

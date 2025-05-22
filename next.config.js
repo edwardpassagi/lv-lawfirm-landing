@@ -4,8 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/lv-lawfirm-landing',
-  assetPrefix: '/lv-lawfirm-landing',
+  basePath: process.env.NODE_ENV === 'production' ? '/lv-lawfirm-landing' : '',
 }
 
 module.exports = nextConfig 
