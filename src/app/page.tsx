@@ -4,31 +4,31 @@ import { motion } from 'framer-motion'
 import { ScaleIcon, ShieldCheckIcon, UserGroupIcon, GlobeAsiaAustraliaIcon } from '@heroicons/react/24/outline'
 import Navbar from '@/components/Navbar'
 import Background from '@/components/Background'
+import { useLanguage } from '@/context/LanguageContext'
+import { translations } from '@/translations'
 
 const services = [
   {
-    title: 'Hukum Korporasi',
-    description: 'Panduan ahli dalam hukum bisnis, merger & akuisisi, dan tata kelola perusahaan.',
     icon: ScaleIcon,
+    key: 'corporate',
   },
   {
-    title: 'Litigasi',
-    description: 'Representasi kuat dalam proses pengadilan dan penyelesaian sengketa.',
     icon: ShieldCheckIcon,
+    key: 'litigation',
   },
   {
-    title: 'Hukum Keluarga',
-    description: 'Dukungan penuh untuk masalah keluarga, perceraian, dan kasus hak asuh.',
     icon: UserGroupIcon,
+    key: 'family',
   },
   {
-    title: 'Hukum Internasional',
-    description: 'Keahlian hukum lintas batas untuk operasi bisnis global.',
     icon: GlobeAsiaAustraliaIcon,
+    key: 'international',
   },
-]
+] as const
 
 export default function Home() {
+  const { language } = useLanguage()
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -44,7 +44,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              LV Lawfirm
+              {translations.hero[language].title}
             </motion.h1>
             <motion.p 
               className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-100 drop-shadow font-serif"
@@ -52,7 +52,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Keunggulan Layanan Hukum di Indonesia
+              {translations.hero[language].subtitle}
             </motion.p>
             <motion.button 
               className="btn btn-secondary font-serif"
@@ -60,7 +60,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Jadwalkan Konsultasi
+              {translations.hero[language].cta}
             </motion.button>
           </motion.div>
         </div>
@@ -69,20 +69,26 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="py-20 bg-dark">
         <div className="container">
-          <h2 className="text-4xl font-serif text-center mb-16 text-white">Layanan Kami</h2>
+          <h2 className="text-4xl font-serif text-center mb-16 text-white">
+            {translations.services[language].title}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <motion.div
-                key={service.title}
-                className="p-6 bg-primary/10 backdrop-blur-sm rounded-lg shadow-lg border border-primary/20"
+                key={service.key}
+                className="p-6 bg-primary-light/15 backdrop-blur-sm rounded-lg shadow-lg border border-primary-light/25"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <service.icon className="w-8 h-8 text-secondary mb-4" />
-                <h3 className="text-xl font-serif mb-2 text-white">{service.title}</h3>
-                <p className="text-gray-300 font-serif">{service.description}</p>
+                <h3 className="text-xl font-serif mb-2 text-white">
+                  {translations.services[language][service.key].title}
+                </h3>
+                <p className="text-gray-300 font-serif">
+                  {translations.services[language][service.key].description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -100,7 +106,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Hubungi Kami
+              {translations.contact[language].title}
             </motion.h2>
             <motion.p 
               className="text-lg mb-8 text-gray-200 font-serif"
@@ -109,7 +115,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              Jadwalkan konsultasi dengan tim hukum berpengalaman kami untuk mendiskusikan kasus Anda.
+              {translations.contact[language].description}
             </motion.p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <motion.div 
@@ -119,12 +125,14 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-serif mb-4 text-secondary">Kantor Jakarta</h3>
+                <h3 className="text-2xl font-serif mb-4 text-secondary">
+                  {translations.contact[language].office}
+                </h3>
                 <div className="space-y-2">
                   <p className="text-gray-100 font-serif">Jalan Utama 123</p>
                   <p className="text-gray-100 font-serif">Jakarta, Indonesia 12345</p>
                   <p className="text-gray-100 font-serif">Telepon: +62 21 1234 5678</p>
-                  <p className="text-gray-100 font-serif">Email: kontak@lvlawfirm.com</p>
+                  <p className="text-gray-100 font-serif">Email: kontak@lvlaw.id</p>
                 </div>
               </motion.div>
               <motion.div 
@@ -134,11 +142,13 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-serif mb-4 text-secondary">Jam Operasional</h3>
+                <h3 className="text-2xl font-serif mb-4 text-secondary">
+                  {translations.contact[language].hours}
+                </h3>
                 <div className="space-y-2">
-                  <p className="text-gray-100 font-serif">Senin - Jumat</p>
+                  <p className="text-gray-100 font-serif">{translations.contact[language].weekdays}</p>
                   <p className="text-gray-100 font-serif">09:00 - 18:00 WIB</p>
-                  <p className="text-gray-100 font-serif">Sabtu</p>
+                  <p className="text-gray-100 font-serif">{translations.contact[language].saturday}</p>
                   <p className="text-gray-100 font-serif">09:00 - 13:00 WIB</p>
                 </div>
               </motion.div>
@@ -146,6 +156,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Copyright Footer */}
+      <footer className="py-6 bg-dark text-center">
+        <div className="container">
+          <p className="text-gray-400 text-sm font-serif">
+            {translations.footer[language].copyright}
+          </p>
+        </div>
+      </footer>
     </main>
   )
 } 
