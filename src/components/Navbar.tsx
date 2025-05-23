@@ -118,9 +118,8 @@ export default function Navbar() {
             <LanguageToggle />
           </div>
 
-          {/* Mobile Menu Button and Language Toggle */}
-          <div className="lg:hidden flex items-center ml-auto space-x-3">
-            <LanguageToggle />
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden flex items-center ml-auto">
             <button
               className="text-white p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -156,9 +155,20 @@ export default function Navbar() {
                   {item.name}
                 </a>
               ))}
-              <button className="w-full mt-2 btn btn-secondary">
+              <div className="px-3 py-2 flex items-center justify-between">
+                <span className="text-base font-medium text-gray-300">
+                  {language === 'id' ? 'Language' : 'Bahasa'}
+                </span>
+                <LanguageToggle />
+              </div>
+              <a 
+                href="https://wa.me/6281258886362"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full mt-2 btn btn-secondary text-center"
+              >
                 {translations.nav[language].contactUs}
-              </button>
+              </a>
             </div>
           </motion.div>
         )}
