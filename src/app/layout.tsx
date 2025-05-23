@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'LV Lawfirm - Indonesian Legal Excellence',
+  title: 'Lux Visionem & Partners',
   description: 'Premier law firm in Indonesia providing expert legal services with integrity and professionalism.',
 }
 

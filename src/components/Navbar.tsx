@@ -157,7 +157,7 @@ export default function Navbar() {
               ))}
               <div className="px-3 py-2 flex items-center justify-between">
                 <span className="text-base font-medium text-gray-300">
-                  {language === 'id' ? 'Language' : 'Bahasa'}
+                  {language === 'id' ? 'Bahasa' : 'Language'}
                 </span>
                 <LanguageToggle />
               </div>
