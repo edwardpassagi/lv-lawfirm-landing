@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/context/LanguageContext'
+import React, { Suspense } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} bg-dark`}>
       <body>
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+        <Suspense fallback={null}>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </Suspense>
       </body>
     </html>
   )
