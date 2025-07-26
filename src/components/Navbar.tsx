@@ -34,7 +34,10 @@ export default function Navbar() {
   }
 
   const toggleLanguage = () => {
-    setLanguage(language === 'id' ? 'en' : 'id')
+    const newLang = language === 'id' ? 'en' : 'id'
+    if (language !== newLang) {
+      setLanguage(newLang)
+    }
   }
 
   const LanguageToggle = () => (

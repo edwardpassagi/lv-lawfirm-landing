@@ -38,11 +38,30 @@ interface ContactTranslations {
   hours: string
   weekdays: string
   saturday: string
+  telephone: string
 }
 
 interface FooterTranslations {
   copyright: string
 }
+
+interface Attorney {
+  name: string
+  position: string
+}
+
+interface AttorneysTranslations {
+  title: string
+  attorneys: Attorney[]
+}
+
+export const attorneys = [
+  { name: 'Hendrikus Passagi, S.Sos., S.H., M.H., M.Sc., C.Med.', position: 'Partner' },
+  { name: 'Zhafran Yafi, S.H.', position: 'Partner' },
+  { name: 'Jonathan Hendson Passagi, S.H., LL.M., J.D.', position: 'Middle Associate' },
+  { name: 'Fajar Wahyudi Passagi, S.H.', position: 'Associate' },
+  { name: 'Framana Umsini Wangsawijaya, S.H.', position: 'Associate' },
+]
 
 export const translations = {
   nav: {
@@ -120,18 +139,20 @@ export const translations = {
     id: {
       title: 'Hubungi Kami',
       description: 'Jadwalkan konsultasi dengan tim hukum berpengalaman kami untuk mendiskusikan kasus Anda.',
-      office: 'Kantor Jakarta',
+      office: 'Alamat Kantor',
       hours: 'Jam Operasional',
       weekdays: 'Senin - Jumat',
-      saturday: 'Sabtu'
+      saturday: 'Sabtu',
+      telephone: 'Telepon: +62 812 5888 6362'
     },
     en: {
       title: 'Contact Us',
       description: 'Schedule a consultation with our experienced legal team to discuss your case.',
-      office: 'Jakarta Office',
+      office: 'Office Address',
       hours: 'Operating Hours',
       weekdays: 'Monday - Friday',
-      saturday: 'Saturday'
+      saturday: 'Saturday',
+      telephone: 'Telephone: +62 812 5888 6362'
     }
   } as TranslationSection<ContactTranslations>,
 
@@ -142,5 +163,14 @@ export const translations = {
     en: {
       copyright: '© 2025 Lux Visionem & Partners. All rights reserved.'
     }
-  } as TranslationSection<FooterTranslations>
+  } as TranslationSection<FooterTranslations>,
+
+  attorneys: {
+    id: {
+      title: 'Para Pengacara Kami',
+    },
+    en: {
+      title: 'Our Attorneys',
+    }
+  } as TranslationSection<{ title: string }>
 } 

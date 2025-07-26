@@ -5,7 +5,7 @@ import { ScaleIcon, ShieldCheckIcon, UserGroupIcon, GlobeAsiaAustraliaIcon } fro
 import Navbar from '@/components/Navbar'
 import Background from '@/components/Background'
 import { useLanguage } from '@/context/LanguageContext'
-import { translations } from '@/translations'
+import { translations, attorneys } from '@/translations'
 
 const services = [
   {
@@ -95,8 +95,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our Attorneys Section */}
+      <section id="attorneys" className="py-20 bg-primary-light">
+        <div className="container">
+          <h2 className="text-4xl font-serif text-center mb-12 text-white">
+            {translations.attorneys[language].title}
+          </h2>
+          {/* First row: 3 attorneys, centered */}
+          <div className="flex justify-center mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-auto">
+              {attorneys.slice(0, 3).map((attorney, idx) => (
+                <motion.div
+                  key={attorney.name}
+                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] w-64"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex flex-col justify-between h-full w-full flex-1">
+                    <div className="flex-1 flex items-start justify-center">
+                      <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
+                    </div>
+                    <div className="flex-1 flex items-end justify-center">
+                      <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          {/* Second row: 2 attorneys, centered */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full md:w-auto">
+              {attorneys.slice(3).map((attorney, idx) => (
+                <motion.div
+                  key={attorney.name}
+                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center w-64"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (idx + 3) * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
+                  <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-primary-light">
+      <section id="contact" className="py-20 bg-dark">
         <div className="container px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2 
@@ -129,10 +180,10 @@ export default function Home() {
                   {translations.contact[language].office}
                 </h3>
                 <div className="space-y-2">
-                  <p className="text-gray-100 font-serif">Jalan Utama 123</p>
-                  <p className="text-gray-100 font-serif">Jakarta, Indonesia 12345</p>
-                  <p className="text-gray-100 font-serif">Telepon: +62 21 1234 5678</p>
-                  <p className="text-gray-100 font-serif">Email: kontak@lvlaw.id</p>
+                  <p className="text-gray-100 font-serif">Jalan Rusa Raya Blok D1/27 Nuri Bintaro Jaya</p>
+                  <p className="text-gray-100 font-serif">Tangerang Selatan, Indonesia 15412</p>
+                  <p className="text-gray-100 font-serif">{translations.contact[language].telephone}</p>
+                  <p className="text-gray-100 font-serif">Email: info@luxvisionem.com</p>
                 </div>
               </motion.div>
               <motion.div 
