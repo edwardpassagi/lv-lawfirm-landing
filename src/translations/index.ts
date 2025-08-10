@@ -56,7 +56,7 @@ interface AttorneysTranslations {
 }
 
 export const attorneys = [
-  { name: 'Hendrikus Passagi, S.Sos., S.H., M.H., M.Sc., C.Med.', position: 'Partner' },
+  // { name: 'Hendrikus Passagi, S.Sos., S.H., M.H., M.Sc., C.Med.', position: 'Partner' },
   { name: 'Zhafran Yafi, S.H.', position: 'Partner' },
   { name: 'Jonathan Hendson Passagi, S.H., LL.M., J.D.', position: 'Middle Associate' },
   { name: 'Fajar Wahyudi Passagi, S.H.', position: 'Associate' },

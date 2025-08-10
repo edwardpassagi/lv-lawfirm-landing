@@ -101,47 +101,26 @@ export default function Home() {
           <h2 className="text-4xl font-serif text-center mb-12 text-white">
             {translations.attorneys[language].title}
           </h2>
-          {/* First row: 3 attorneys, centered */}
-          <div className="flex justify-center mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-auto">
-              {attorneys.slice(0, 3).map((attorney, idx) => (
-                <motion.div
-                  key={attorney.name}
-                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] w-64"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex flex-col justify-between h-full w-full flex-1">
-                    <div className="flex-1 flex items-start justify-center">
-                      <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
-                    </div>
-                    <div className="flex-1 flex items-end justify-center">
-                      <p className="text-secondary text-sm font-serif">{attorney.position}</p>
-                    </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full justify-items-center">
+            {attorneys.map((attorney, idx) => (
+              <motion.div
+                key={attorney.name}
+                className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex flex-col justify-between h-full w-full flex-1">
+                  <div className="flex-1 flex items-start justify-center">
+                    <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          {/* Second row: 2 attorneys, centered */}
-          <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full md:w-auto">
-              {attorneys.slice(3).map((attorney, idx) => (
-                <motion.div
-                  key={attorney.name}
-                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center w-64"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: (idx + 3) * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
-                  <p className="text-secondary text-sm font-serif">{attorney.position}</p>
-                </motion.div>
-              ))}
-            </div>
+                  <div className="flex-1 flex items-end justify-center">
+                    <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -183,7 +162,7 @@ export default function Home() {
                   <p className="text-gray-100 font-serif">Jalan Rusa Raya Blok D1/27 Nuri Bintaro Jaya</p>
                   <p className="text-gray-100 font-serif">Tangerang Selatan, Indonesia 15412</p>
                   <p className="text-gray-100 font-serif">{translations.contact[language].telephone}</p>
-                  <p className="text-gray-100 font-serif">Email: info@luxvisionem.com</p>
+                  <p className="text-gray-100 font-serif">Email: info@lvlaw.id</p>
                 </div>
               </motion.div>
               <motion.div 
