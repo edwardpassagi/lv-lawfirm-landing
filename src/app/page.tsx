@@ -100,7 +100,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <service.icon className="w-8 h-8 text-secondary mb-4" />
+                <service.icon className="w-8 h-8 text-white mb-4" />
                 <h3 className="text-xl font-serif mb-2 text-white">
                   {translations.services[language][service.key].title}
                 </h3>
@@ -136,7 +136,7 @@ export default function Home() {
                       <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
                     </div>
                     <div className="flex-1 flex items-end justify-center">
-                      <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                      <p className="text-gray-400 text-sm font-serif">{attorney.position}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -159,7 +159,7 @@ export default function Home() {
                       <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
                     </div>
                     <div className="flex-1 flex items-end justify-center">
-                      <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                      <p className="text-gray-400 text-sm font-serif">{attorney.position}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -183,7 +183,7 @@ export default function Home() {
                         <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
                       </div>
                       <div className="flex-1 flex items-end justify-center">
-                        <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                        <p className="text-gray-400 text-sm font-serif">{attorney.position}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -224,7 +224,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-serif mb-4 text-secondary">
+                <h3 className="text-2xl font-serif mb-4 text-white">
                   {translations.contact[language].office}
                 </h3>
                 <div className="space-y-2">
@@ -241,7 +241,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-serif mb-4 text-secondary">
+                <h3 className="text-2xl font-serif mb-4 text-white">
                   {translations.contact[language].hours}
                 </h3>
                 <div className="space-y-2">

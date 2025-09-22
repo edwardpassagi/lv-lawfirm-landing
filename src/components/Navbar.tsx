@@ -55,7 +55,7 @@ export default function Navbar() {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <motion.div
-          className="w-6 h-6 bg-secondary rounded-full"
+          className="w-6 h-6 bg-white rounded-full"
           whileHover={{ scale: 1.1 }}
           layout
         />
