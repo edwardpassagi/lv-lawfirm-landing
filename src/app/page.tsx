@@ -43,7 +43,7 @@ export default function Home() {
   const handleContinueScheduling = () => {
     setIsDisclaimerOpen(false)
     // Open Calendly scheduling link
-    window.open('https://calendly.com', '_blank')
+    window.open('https://calendly.com/edward-passagi/30min', '_blank')
   }
 
   return (
