@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useLanguage, type Language } from '@/context/LanguageContext'
 import { translations } from '@/translations'
+import Image from 'next/image'
 
 const getNavItems = (language: Language) => [
   { name: translations.nav[language].home, href: '#home' },
@@ -48,12 +49,12 @@ export default function Navbar() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      <motion.div 
+      <motion.div
         className="absolute inset-1 flex"
         animate={{ justifyContent: language === 'id' ? 'flex-start' : 'flex-end' }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        <motion.div 
+        <motion.div
           className="w-6 h-6 bg-secondary rounded-full"
           whileHover={{ scale: 1.1 }}
           layout
@@ -78,9 +79,8 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-dark/80 backdrop-blur-sm' : 'bg-transparent'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-dark/80 backdrop-blur-sm' : 'bg-transparent'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -89,11 +89,18 @@ export default function Navbar() {
         <div className="flex items-center h-20">
           {/* Logo - Fixed width column */}
           <div className="w-[280px]">
-            <a href="#home" className="text-white font-serif text-lg md:text-xl lg:text-2xl whitespace-nowrap">
+            <a href="#home" className="flex items-center text-white font-serif text-lg md:text-xl lg:text-2xl whitespace-nowrap">
+              <Image
+                src="/images/icon.png"
+                alt="Lux Visionem & Partners Logo"
+                width={32}
+                height={32}
+                className="mr-3 rounded-md"
+              />
               Lux Visionem & Partners
             </a>
           </div>
-          
+
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex flex-1 items-center justify-center">
             <div className="flex items-center space-x-8">
@@ -164,7 +171,7 @@ export default function Navbar() {
                 </span>
                 <LanguageToggle />
               </div>
-              <a 
+              <a
                 href="https://wa.me/6281258886362"
                 target="_blank"
                 rel="noopener noreferrer"

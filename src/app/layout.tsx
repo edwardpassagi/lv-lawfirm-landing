@@ -19,6 +19,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Lux Visionem & Partners',
   description: 'Premier law firm in Indonesia providing expert legal services with integrity and professionalism.',
+  icons: {
+    icon: '/images/icon.png',
+  },
 }
 
 export default function RootLayout({
