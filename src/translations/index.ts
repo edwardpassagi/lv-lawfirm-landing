@@ -45,6 +45,13 @@ interface FooterTranslations {
   copyright: string
 }
 
+interface DisclaimerTranslations {
+  title: string
+  content: string
+  cancel: string
+  continue: string
+}
+
 interface Attorney {
   name: string
   position: string
@@ -60,7 +67,8 @@ export const attorneys = [
   { name: 'Zhafran Yafi, S.H.', position: 'Partner' },
   { name: 'Jonathan Hendson Passagi, S.H., LL.M., J.D.', position: 'Middle Associate' },
   { name: 'Fajar Wahyudi Passagi, S.H.', position: 'Associate' },
-  { name: 'Framana Umsini Wangsawijaya, S.H.', position: 'Associate' },
+  { name: 'Framana Umsini Passagi, S.H.', position: 'Associate' },
+  { name: 'Edward Passagi, AES, B.Sc, MCS', position: 'Tech Consultant' },
 ]
 
 export const translations = {
@@ -80,20 +88,20 @@ export const translations = {
       language: 'ID'
     }
   } as TranslationSection<NavTranslations>,
-  
+
   hero: {
     id: {
       title: 'Lux Visionem & Partners',
-      subtitle: 'Keunggulan Layanan Hukum di Indonesia',
+      subtitle: 'Pengacara • Pengurus & Kurator Kepailitan • Konsultan Bisnis & Pajak',
       cta: 'Jadwalkan Konsultasi'
     },
     en: {
       title: 'Lux Visionem & Partners',
-      subtitle: 'Legal Excellence in Indonesia',
+      subtitle: 'Attorneys • Receivers & Administrators for Bankruptcy • Business & Tax Consultants',
       cta: 'Schedule Consultation'
     }
   } as TranslationSection<HeroTranslations>,
-  
+
   services: {
     id: {
       title: 'Layanan Kami',
@@ -134,7 +142,7 @@ export const translations = {
       }
     }
   } as TranslationSection<ServicesTranslations>,
-  
+
   contact: {
     id: {
       title: 'Hubungi Kami',
@@ -167,10 +175,25 @@ export const translations = {
 
   attorneys: {
     id: {
-      title: 'Para Pengacara Kami',
+      title: 'Tim Kami',
     },
     en: {
-      title: 'Our Attorneys',
+      title: 'Our Team',
     }
-  } as TranslationSection<{ title: string }>
+  } as TranslationSection<{ title: string }>,
+
+  disclaimer: {
+    id: {
+      title: 'Pemberitahuan Penting',
+      content: 'Harap jangan sertakan informasi rahasia atau sensitif dalam formulir kontak, pesan teks, atau pesan suara. Formulir kontak mengirim informasi melalui email yang tidak terenkripsi dan tidak aman. Mengirimkan formulir kontak, mengirim pesan teks, melakukan panggilan telepon, atau meninggalkan pesan suara tidak menciptakan hubungan pengacara-klien.',
+      cancel: 'Batal',
+      continue: 'Lanjutkan Penjadwalan'
+    },
+    en: {
+      title: 'Important Notice',
+      content: 'Please do not include any confidential or sensitive information in a contact form, text message, or voicemail. The contact form sends information by non-encrypted email, which is not secure. Submitting a contact form, sending a text message, making a phone call, or leaving a voicemail does not create an attorney-client relationship.',
+      cancel: 'Cancel',
+      continue: 'Continue Scheduling'
+    }
+  } as TranslationSection<DisclaimerTranslations>
 } 

@@ -122,9 +122,9 @@ export default function Navbar() {
 
           {/* Desktop Actions - Fixed width column */}
           <div className="hidden lg:flex items-center justify-end w-[280px]">
-            <button className="btn btn-secondary whitespace-nowrap min-w-[120px] mr-6">
+            <a href="https://wa.me/message/NMAAAO2JPOBCF1" className="btn btn-secondary whitespace-nowrap min-w-[120px] mr-6">
               {translations.nav[language].contactUs}
-            </button>
+            </a>
             <LanguageToggle />
           </div>
 

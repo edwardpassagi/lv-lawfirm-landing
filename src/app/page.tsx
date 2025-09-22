@@ -1,9 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ScaleIcon, ShieldCheckIcon, UserGroupIcon, GlobeAsiaAustraliaIcon } from '@heroicons/react/24/outline'
 import Navbar from '@/components/Navbar'
 import Background from '@/components/Background'
+import DisclaimerModal from '@/components/DisclaimerModal'
 import { useLanguage } from '@/context/LanguageContext'
 import { translations, attorneys } from '@/translations'
 
@@ -28,17 +30,32 @@ const services = [
 
 export default function Home() {
   const { language } = useLanguage()
+  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false)
+
+  const handleScheduleClick = () => {
+    setIsDisclaimerOpen(true)
+  }
+
+  const handleDisclaimerClose = () => {
+    setIsDisclaimerOpen(false)
+  }
+
+  const handleContinueScheduling = () => {
+    setIsDisclaimerOpen(false)
+    // Open Calendly scheduling link
+    window.open('https://calendly.com', '_blank')
+  }
 
   return (
     <main className="min-h-screen">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <Background />
         <div className="container relative z-10">
           <motion.div className="text-center max-w-4xl mx-auto">
-            <motion.h1 
+            <motion.h1
               className="text-5xl md:text-7xl font-serif mb-6 text-white drop-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -46,19 +63,20 @@ export default function Home() {
             >
               {translations.hero[language].title}
             </motion.h1>
-            <motion.p 
-              className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-100 drop-shadow font-serif"
+            <motion.p
+              className="text-xl md:text-3xl mb-8 max-w-4xl mx-auto text-gray-100 drop-shadow font-serif"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               {translations.hero[language].subtitle}
             </motion.p>
-            <motion.button 
+            <motion.button
               className="btn btn-secondary font-serif"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              onClick={handleScheduleClick}
             >
               {translations.hero[language].cta}
             </motion.button>
@@ -101,26 +119,77 @@ export default function Home() {
           <h2 className="text-4xl font-serif text-center mb-12 text-white">
             {translations.attorneys[language].title}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full justify-items-center">
-            {attorneys.map((attorney, idx) => (
-              <motion.div
-                key={attorney.name}
-                className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex flex-col justify-between h-full w-full flex-1">
-                  <div className="flex-1 flex items-start justify-center">
-                    <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
+          <div className="flex flex-col items-center gap-8">
+            {/* First row - 3 cards */}
+            <div className="flex flex-wrap justify-center gap-8">
+              {attorneys.slice(0, 3).map((attorney, idx) => (
+                <motion.div
+                  key={attorney.name}
+                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex flex-col justify-between h-full w-full flex-1">
+                    <div className="flex-1 flex items-start justify-center">
+                      <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
+                    </div>
+                    <div className="flex-1 flex items-end justify-center">
+                      <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 flex items-end justify-center">
-                    <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Second row - 2 cards */}
+            <div className="flex flex-wrap justify-center gap-8">
+              {attorneys.slice(3, 5).map((attorney, idx) => (
+                <motion.div
+                  key={attorney.name}
+                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (idx + 3) * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex flex-col justify-between h-full w-full flex-1">
+                    <div className="flex-1 flex items-start justify-center">
+                      <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
+                    </div>
+                    <div className="flex-1 flex items-end justify-center">
+                      <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Third row - remaining cards if any */}
+            {attorneys.length > 5 && (
+              <div className="flex flex-wrap justify-center gap-8">
+                {attorneys.slice(5).map((attorney, idx) => (
+                  <motion.div
+                    key={attorney.name}
+                    className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: (idx + 5) * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex flex-col justify-between h-full w-full flex-1">
+                      <div className="flex-1 flex items-start justify-center">
+                        <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
+                      </div>
+                      <div className="flex-1 flex items-end justify-center">
+                        <p className="text-secondary text-sm font-serif">{attorney.position}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -129,7 +198,7 @@ export default function Home() {
       <section id="contact" className="py-20 bg-dark">
         <div className="container px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.h2 
+            <motion.h2
               className="text-4xl font-serif mb-8 text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +207,7 @@ export default function Home() {
             >
               {translations.contact[language].title}
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-lg mb-8 text-gray-200 font-serif"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +217,7 @@ export default function Home() {
               {translations.contact[language].description}
             </motion.p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              <motion.div 
+              <motion.div
                 className="bg-dark/90 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-lg border border-primary/30"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +234,7 @@ export default function Home() {
                   <p className="text-gray-100 font-serif">Email: info@lvlaw.id</p>
                 </div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="bg-dark/90 backdrop-blur-sm p-6 sm:p-8 rounded-lg shadow-lg border border-primary/30"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -195,6 +264,13 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* Disclaimer Modal */}
+      <DisclaimerModal
+        isOpen={isDisclaimerOpen}
+        onClose={handleDisclaimerClose}
+        onContinue={handleContinueScheduling}
+      />
     </main>
   )
 } 
