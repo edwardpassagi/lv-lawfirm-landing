@@ -50,11 +50,14 @@ interface DisclaimerTranslations {
   content: string
   cancel: string
   continue: string
+  continueContact: string
 }
 
 interface Attorney {
   name: string
   position: string
+  photo: string
+  photoPosition?: string
 }
 
 interface AttorneysTranslations {
@@ -63,12 +66,12 @@ interface AttorneysTranslations {
 }
 
 export const attorneys = [
-  // { name: 'Hendrikus Passagi, S.Sos., S.H., M.H., M.Sc., C.Med.', position: 'Partner' },
-  { name: 'Zhafran Yafi, S.H.', position: 'Partner' },
-  { name: 'Jonathan Hendson Passagi, S.H., LL.M., J.D.', position: 'Middle Associate' },
-  { name: 'Fajar Wahyudi Passagi, S.H.', position: 'Associate' },
-  { name: 'Framana Umsini Passagi, S.H.', position: 'Associate' },
-  { name: 'Edward Passagi, AES, B.Sc, MCS', position: 'Tech Consultant' },
+  { name: 'Dr. Hendrikus Passagi, S.Sos., S.H., M.H., M.Sc., CFTP., CIMBA., C.Med', position: 'Of Counsel & Business Consultant', photo: '/images/team/hendrikus.jpeg' },
+  { name: 'Zhafran Yafi, S.H.', position: 'Partner', photo: '/images/team/zhafran.jpeg' },
+  { name: 'Jonathan Hendson Passagi, S.H., LL.M., J.D.', position: 'Middle Associate', photo: '/images/team/jonathan.jpeg' },
+  { name: 'Fajar Wahyudi Passagi, S.H.', position: 'Associate', photo: '/images/team/fajar.jpeg' },
+  { name: 'Framana Umsini Passagi, S.H.', position: 'Associate', photo: '/images/team/framana.jpeg' },
+  { name: 'Edward Passagi, AES, B.Sc, MCS', position: 'Tech Consultant', photo: '/images/team/edward-card.jpg' },
 ]
 
 export const translations = {
@@ -187,13 +190,15 @@ export const translations = {
       title: 'Pemberitahuan Penting',
       content: 'Harap jangan sertakan informasi rahasia atau sensitif dalam formulir kontak, pesan teks, atau pesan suara. Formulir kontak mengirim informasi melalui email yang tidak terenkripsi dan tidak aman. Mengirimkan formulir kontak, mengirim pesan teks, melakukan panggilan telepon, atau meninggalkan pesan suara tidak menciptakan hubungan pengacara-klien.',
       cancel: 'Batal',
-      continue: 'Lanjutkan Penjadwalan'
+      continue: 'Lanjutkan Penjadwalan',
+      continueContact: 'Lanjutkan ke WhatsApp'
     },
     en: {
       title: 'Important Notice',
       content: 'Please do not include any confidential or sensitive information in a contact form, text message, or voicemail. The contact form sends information by non-encrypted email, which is not secure. Submitting a contact form, sending a text message, making a phone call, or leaving a voicemail does not create an attorney-client relationship.',
       cancel: 'Cancel',
-      continue: 'Continue Scheduling'
+      continue: 'Continue Scheduling',
+      continueContact: 'Continue to WhatsApp'
     }
   } as TranslationSection<DisclaimerTranslations>
 } 

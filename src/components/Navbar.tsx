@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useLanguage, type Language } from '@/context/LanguageContext'
 import { translations } from '@/translations'
 import Image from 'next/image'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const getNavItems = (language: Language) => [
   { name: translations.nav[language].home, href: '#home' },
@@ -13,8 +14,13 @@ const getNavItems = (language: Language) => [
   { name: translations.nav[language].contact, href: '#contact' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  onContactClick: () => void
+}
+
+export default function Navbar({ onContactClick }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isPastHero, setIsPastHero] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
   const navItems = getNavItems(language)
@@ -22,6 +28,8 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      // Show contact button when scrolled past hero section (roughly viewport height)
+      setIsPastHero(window.scrollY > window.innerHeight * 0.8)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -122,14 +130,41 @@ export default function Navbar() {
 
           {/* Desktop Actions - Fixed width column */}
           <div className="hidden lg:flex items-center justify-end w-[280px]">
-            <a href="https://wa.me/message/NMAAAO2JPOBCF1" className="btn btn-secondary whitespace-nowrap min-w-[120px] mr-6">
-              {translations.nav[language].contactUs}
-            </a>
+            <AnimatePresence>
+              {isPastHero && (
+                <motion.button
+                  onClick={onContactClick}
+                  className="bg-[#25D366] text-white hover:bg-[#20BA5A] whitespace-nowrap min-w-[120px] mr-6 flex items-center gap-2 px-6 py-3 rounded-md font-medium transition-all duration-200"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaWhatsapp className="w-5 h-5" />
+                  {translations.nav[language].contactUs}
+                </motion.button>
+              )}
+            </AnimatePresence>
             <LanguageToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center ml-auto">
+          {/* Mobile Actions */}
+          <div className="lg:hidden flex items-center ml-auto gap-3">
+            <AnimatePresence>
+              {isPastHero && (
+                <motion.button
+                  onClick={onContactClick}
+                  className="bg-[#25D366] text-white hover:bg-[#20BA5A] p-3 rounded-md transition-all duration-200 flex items-center justify-center"
+                  aria-label="Contact on WhatsApp"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaWhatsapp className="w-5 h-5" />
+                </motion.button>
+              )}
+            </AnimatePresence>
             <button
               className="text-white p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -171,14 +206,6 @@ export default function Navbar() {
                 </span>
                 <LanguageToggle />
               </div>
-              <a
-                href="https://wa.me/6281258886362"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full mt-2 btn btn-secondary text-center"
-              >
-                {translations.nav[language].contactUs}
-              </a>
             </div>
           </motion.div>
         )}

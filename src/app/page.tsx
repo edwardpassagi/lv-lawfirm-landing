@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ScaleIcon, ShieldCheckIcon, UserGroupIcon, GlobeAsiaAustraliaIcon } from '@heroicons/react/24/outline'
+import { FaWhatsapp } from 'react-icons/fa'
+import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Background from '@/components/Background'
 import DisclaimerModal from '@/components/DisclaimerModal'
@@ -31,8 +33,15 @@ const services = [
 export default function Home() {
   const { language } = useLanguage()
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false)
+  const [disclaimerAction, setDisclaimerAction] = useState<'schedule' | 'contact'>('schedule')
 
   const handleScheduleClick = () => {
+    setDisclaimerAction('schedule')
+    setIsDisclaimerOpen(true)
+  }
+
+  const handleContactClick = () => {
+    setDisclaimerAction('contact')
     setIsDisclaimerOpen(true)
   }
 
@@ -40,15 +49,20 @@ export default function Home() {
     setIsDisclaimerOpen(false)
   }
 
-  const handleContinueScheduling = () => {
+  const handleContinue = () => {
     setIsDisclaimerOpen(false)
-    // Open Calendly scheduling link
-    window.open('https://calendly.com/edward-passagi/30min', '_blank')
+    if (disclaimerAction === 'schedule') {
+      // Open Calendly
+      window.open('https://calendly.com/edward-passagi/30min', '_blank')
+    } else {
+      // Open WhatsApp
+      window.open('https://wa.me/message/NMAAAO2JPOBCF1', '_blank')
+    }
   }
 
   return (
     <main className="min-h-screen">
-      <Navbar />
+      <Navbar onContactClick={handleContactClick} />
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -71,15 +85,26 @@ export default function Home() {
             >
               {translations.hero[language].subtitle}
             </motion.p>
-            <motion.button
-              className="btn btn-secondary font-serif"
+            <motion.div
+              className="flex flex-col gap-4 justify-center items-center w-full max-w-sm mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              onClick={handleScheduleClick}
             >
-              {translations.hero[language].cta}
-            </motion.button>
+              <button
+                className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50 px-6 py-3 rounded-md font-medium transition-all duration-300 font-serif w-full"
+                onClick={handleScheduleClick}
+              >
+                {translations.hero[language].cta}
+              </button>
+              <button
+                onClick={handleContactClick}
+                className="bg-[#25D366]/80 backdrop-blur-sm border border-[#25D366]/30 text-white hover:bg-[#25D366]/90 hover:border-[#25D366]/50 px-6 py-3 rounded-md font-medium transition-all duration-300 flex items-center justify-center gap-2 font-serif w-full"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                {translations.nav[language].contactUs}
+              </button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -119,77 +144,30 @@ export default function Home() {
           <h2 className="text-4xl font-serif text-center mb-12 text-white">
             {translations.attorneys[language].title}
           </h2>
-          <div className="flex flex-col items-center gap-8">
-            {/* First row - 3 cards */}
-            <div className="flex flex-wrap justify-center gap-8">
-              {attorneys.slice(0, 3).map((attorney, idx) => (
-                <motion.div
-                  key={attorney.name}
-                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex flex-col justify-between h-full w-full flex-1">
-                    <div className="flex-1 flex items-start justify-center">
-                      <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
-                    </div>
-                    <div className="flex-1 flex items-end justify-center">
-                      <p className="text-gray-400 text-sm font-serif">{attorney.position}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Second row - 2 cards */}
-            <div className="flex flex-wrap justify-center gap-8">
-              {attorneys.slice(3, 5).map((attorney, idx) => (
-                <motion.div
-                  key={attorney.name}
-                  className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: (idx + 3) * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex flex-col justify-between h-full w-full flex-1">
-                    <div className="flex-1 flex items-start justify-center">
-                      <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
-                    </div>
-                    <div className="flex-1 flex items-end justify-center">
-                      <p className="text-gray-400 text-sm font-serif">{attorney.position}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Third row - remaining cards if any */}
-            {attorneys.length > 5 && (
-              <div className="flex flex-wrap justify-center gap-8">
-                {attorneys.slice(5).map((attorney, idx) => (
-                  <motion.div
-                    key={attorney.name}
-                    className="p-6 bg-dark/80 rounded-lg shadow-lg border border-primary/20 flex flex-col items-center text-center min-h-[180px] h-full w-64"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: (idx + 5) * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="flex flex-col justify-between h-full w-full flex-1">
-                      <div className="flex-1 flex items-start justify-center">
-                        <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
-                      </div>
-                      <div className="flex-1 flex items-end justify-center">
-                        <p className="text-gray-400 text-sm font-serif">{attorney.position}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {attorneys.map((attorney, idx) => (
+              <motion.div
+                key={attorney.name}
+                className="bg-dark/80 rounded-lg shadow-lg border border-primary/20 overflow-hidden flex flex-col h-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative w-full aspect-[3/4]">
+                  <Image
+                    src={attorney.photo}
+                    alt={attorney.name}
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="p-6 flex flex-col items-center text-center flex-1">
+                  <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
+                  <p className="text-gray-400 text-sm font-serif">{attorney.position}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -269,7 +247,12 @@ export default function Home() {
       <DisclaimerModal
         isOpen={isDisclaimerOpen}
         onClose={handleDisclaimerClose}
-        onContinue={handleContinueScheduling}
+        onContinue={handleContinue}
+        continueButtonText={
+          disclaimerAction === 'contact'
+            ? translations.disclaimer[language].continueContact
+            : undefined
+        }
       />
     </main>
   )

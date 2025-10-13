@@ -10,15 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1a1a1a',
-          light: '#2a2a2a',
+          DEFAULT: '#2a2a2a',
+          light: '#3a3a3a',
         },
         secondary: {
           DEFAULT: '#f5f5f5',
           dark: '#d4d4d4',
         },
         accent: '#666666',
-        dark: '#0a0a0a',
+        dark: '#1a1a1a',
       },
       fontFamily: {
         sans: ['var(--font-inter)'],

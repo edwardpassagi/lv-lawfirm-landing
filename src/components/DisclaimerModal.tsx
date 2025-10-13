@@ -9,10 +9,12 @@ interface DisclaimerModalProps {
   isOpen: boolean
   onClose: () => void
   onContinue: () => void
+  continueButtonText?: string
 }
 
-export default function DisclaimerModal({ isOpen, onClose, onContinue }: DisclaimerModalProps) {
+export default function DisclaimerModal({ isOpen, onClose, onContinue, continueButtonText }: DisclaimerModalProps) {
   const { language } = useLanguage()
+  const defaultContinueText = translations.disclaimer[language].continue
 
   return (
     <AnimatePresence>
@@ -73,7 +75,7 @@ export default function DisclaimerModal({ isOpen, onClose, onContinue }: Disclai
                     onClick={onContinue}
                     className="btn btn-secondary font-serif flex-1"
                   >
-                    {translations.disclaimer[language].continue}
+                    {continueButtonText || defaultContinueText}
                   </button>
                 </div>
               </div>
