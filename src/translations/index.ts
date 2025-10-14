@@ -7,7 +7,7 @@ type TranslationSection<T> = {
 interface NavTranslations {
   home: string
   services: string
-  contact: string
+  team: string
   contactUs: string
   language: string
 }
@@ -136,14 +136,14 @@ export const translations = {
     id: {
       home: 'Beranda',
       services: 'Layanan',
-      contact: 'Kontak',
+      team: 'Tim Kami',
       contactUs: 'Hubungi Kami',
       language: 'EN'
     },
     en: {
       home: 'Home',
       services: 'Services',
-      contact: 'Contact',
+      team: 'Our Team',
       contactUs: 'Contact Us',
       language: 'ID'
     }

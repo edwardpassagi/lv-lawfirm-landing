@@ -10,7 +10,7 @@ import Image from 'next/image'
 const getNavItems = (language: Language) => [
   { name: translations.nav[language].home, href: '#home' },
   { name: translations.nav[language].services, href: '#services' },
-  { name: translations.nav[language].contact, href: '#contact' },
+  { name: translations.nav[language].team, href: '#attorneys' },
 ]
 
 interface NavbarProps {
