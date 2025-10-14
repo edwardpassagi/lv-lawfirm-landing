@@ -209,7 +209,7 @@ export const translations = {
   about: {
     id: {
       title: 'Tentang Kami',
-      description: 'Lux Visionem & Partners adalah firma hukum terkemuka yang berkomitmen memberikan solusi hukum komprehensif dengan integritas dan profesionalisme tertinggi. Tim kami yang berpengalaman menggabungkan keahlian mendalam dalam hukum korporasi, litigasi, dan konsultasi bisnis untuk melayani klien lokal maupun internasional. Kami berdedikasi untuk melindungi kepentingan Anda dan mencapai hasil terbaik dalam setiap kasus.',
+      description: 'Firma hukum terkemuka dengan keahlian dalam hukum korporasi, litigasi, dan konsultasi bisnis berbasis teknologi informasi. Melayani klien lokal dan internasional dengan integritas dan profesionalisme.',
       office: 'Alamat Kantor',
       hours: 'Jam Operasional',
       weekdays: 'Senin - Jumat',
@@ -218,7 +218,7 @@ export const translations = {
     },
     en: {
       title: 'About Us',
-      description: 'Lux Visionem & Partners is a premier law firm committed to providing comprehensive legal solutions with the highest standards of integrity and professionalism. Our experienced team combines deep expertise in corporate law, litigation, and business consulting to serve both local and international clients. We are dedicated to protecting your interests and achieving the best outcomes in every case.',
+      description: 'A premier law firm specializing in corporate law, litigation, and IT-based business consulting. Serving local and international clients with integrity and professionalism.',
       office: 'Office Address',
       hours: 'Operating Hours',
       weekdays: 'Monday - Friday',

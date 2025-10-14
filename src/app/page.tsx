@@ -72,7 +72,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-dvh">
       <Navbar onContactClick={handleContactClick} />
 
       {/* Hero Section */}
@@ -110,7 +110,7 @@ export default function Home() {
               </button>
               <button
                 onClick={handleContactClick}
-                className="bg-[#25D366]/80 backdrop-blur-sm border border-[#25D366]/30 text-white hover:bg-[#25D366]/90 hover:border-[#25D366]/50 px-6 py-3 rounded-md font-medium transition-all duration-300 flex items-center justify-center gap-2 font-serif w-full"
+                className="bg-whatsapp/60 backdrop-blur-sm border border-whatsapp/30 text-white hover:bg-whatsapp/90 hover:border-whatsapp/50 px-6 py-3 rounded-md font-medium transition-all duration-300 flex items-center justify-center gap-2 font-serif w-full"
               >
                 <FaWhatsapp className="w-5 h-5" />
                 {translations.nav[language].contactUs}

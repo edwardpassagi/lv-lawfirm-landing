@@ -3,18 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-
-  html::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-
   body {
-    @apply text-dark min-h-screen;
+    @apply text-dark min-h-dvh;
+    overflow-x: hidden;
+  }
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;

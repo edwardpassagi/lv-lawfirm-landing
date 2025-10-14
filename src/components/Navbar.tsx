@@ -31,6 +31,10 @@ export default function Navbar({ onContactClick }: NavbarProps) {
       // Show contact button when scrolled past hero section (roughly viewport height)
       setIsPastHero(window.scrollY > window.innerHeight * 0.8)
     }
+
+    // Check scroll position on mount
+    handleScroll()
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -94,7 +98,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center h-20">
+        <div className="flex items-center" style={{ height: '80px', minHeight: '80px' }}>
           {/* Logo - Fixed width column */}
           <div className="w-[280px]">
             <a href="#home" className="flex items-center text-white font-serif text-lg md:text-xl lg:text-2xl whitespace-nowrap">
@@ -134,7 +138,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
               {isPastHero && (
                 <motion.button
                   onClick={onContactClick}
-                  className="bg-[#25D366] text-white hover:bg-[#20BA5A] whitespace-nowrap min-w-[120px] mr-6 flex items-center gap-2 px-6 py-3 rounded-md font-medium transition-all duration-200"
+                  className="bg-whatsapp/60 text-white hover:bg-whatsapp-hover whitespace-nowrap min-w-[120px] mr-6 flex items-center gap-2 px-6 py-3 rounded-md font-medium transition-colors duration-200"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -154,7 +158,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
               {isPastHero && (
                 <motion.button
                   onClick={onContactClick}
-                  className="bg-[#25D366] text-white hover:bg-[#20BA5A] p-3 rounded-md transition-all duration-200 flex items-center justify-center"
+                  className="bg-whatsapp/60 text-white hover:bg-whatsapp-hover p-3 rounded-md transition-colors duration-200 flex items-center justify-center"
                   aria-label="Contact on WhatsApp"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

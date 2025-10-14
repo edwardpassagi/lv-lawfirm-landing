@@ -19,6 +19,10 @@ const config: Config = {
         },
         accent: '#666666',
         dark: '#1a1a1a',
+        whatsapp: {
+          DEFAULT: '#25D366',
+          hover: '#20BA5A',
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)'],
