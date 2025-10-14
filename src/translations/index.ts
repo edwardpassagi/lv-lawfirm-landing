@@ -8,6 +8,7 @@ interface NavTranslations {
   home: string
   services: string
   team: string
+  about: string
   contactUs: string
   language: string
 }
@@ -31,7 +32,7 @@ interface ServicesTranslations {
   international: ServiceTranslations
 }
 
-interface ContactTranslations {
+interface AboutTranslations {
   title: string
   description: string
   office: string
@@ -137,6 +138,7 @@ export const translations = {
       home: 'Beranda',
       services: 'Layanan',
       team: 'Tim Kami',
+      about: 'Tentang Kami',
       contactUs: 'Hubungi Kami',
       language: 'EN'
     },
@@ -144,6 +146,7 @@ export const translations = {
       home: 'Home',
       services: 'Services',
       team: 'Our Team',
+      about: 'About Us',
       contactUs: 'Contact Us',
       language: 'ID'
     }
@@ -203,10 +206,10 @@ export const translations = {
     }
   } as TranslationSection<ServicesTranslations>,
 
-  contact: {
+  about: {
     id: {
-      title: 'Hubungi Kami',
-      description: 'Jadwalkan konsultasi dengan tim hukum berpengalaman kami untuk mendiskusikan kasus Anda.',
+      title: 'Tentang Kami',
+      description: 'Lux Visionem & Partners adalah firma hukum terkemuka yang berkomitmen memberikan solusi hukum komprehensif dengan integritas dan profesionalisme tertinggi. Tim kami yang berpengalaman menggabungkan keahlian mendalam dalam hukum korporasi, litigasi, dan konsultasi bisnis untuk melayani klien lokal maupun internasional. Kami berdedikasi untuk melindungi kepentingan Anda dan mencapai hasil terbaik dalam setiap kasus.',
       office: 'Alamat Kantor',
       hours: 'Jam Operasional',
       weekdays: 'Senin - Jumat',
@@ -214,15 +217,15 @@ export const translations = {
       telephone: 'Telepon: +62 812 5888 6362'
     },
     en: {
-      title: 'Contact Us',
-      description: 'Schedule a consultation with our experienced legal team to discuss your case.',
+      title: 'About Us',
+      description: 'Lux Visionem & Partners is a premier law firm committed to providing comprehensive legal solutions with the highest standards of integrity and professionalism. Our experienced team combines deep expertise in corporate law, litigation, and business consulting to serve both local and international clients. We are dedicated to protecting your interests and achieving the best outcomes in every case.',
       office: 'Office Address',
       hours: 'Operating Hours',
       weekdays: 'Monday - Friday',
       saturday: 'Saturday',
       telephone: 'Telephone: +62 812 5888 6362'
     }
-  } as TranslationSection<ContactTranslations>,
+  } as TranslationSection<AboutTranslations>,
 
   footer: {
     id: {

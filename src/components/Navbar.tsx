@@ -11,6 +11,7 @@ const getNavItems = (language: Language) => [
   { name: translations.nav[language].home, href: '#home' },
   { name: translations.nav[language].services, href: '#services' },
   { name: translations.nav[language].team, href: '#attorneys' },
+  { name: translations.nav[language].about, href: '#about' },
 ]
 
 interface NavbarProps {

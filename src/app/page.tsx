@@ -191,8 +191,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-dark">
+      {/* About Section */}
+      <section id="about" className="py-20 bg-dark">
         <div className="container px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2
@@ -202,16 +202,16 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {translations.contact[language].title}
+              {translations.about[language].title}
             </motion.h2>
             <motion.p
-              className="text-lg mb-8 text-gray-200 font-serif"
+              className="text-lg mb-12 text-gray-200 font-serif leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              {translations.contact[language].description}
+              {translations.about[language].description}
             </motion.p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <motion.div
@@ -222,12 +222,12 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <h3 className="text-2xl font-serif mb-4 text-white">
-                  {translations.contact[language].office}
+                  {translations.about[language].office}
                 </h3>
                 <div className="space-y-2">
                   <p className="text-gray-100 font-serif">Jalan Rusa Raya Blok D1/27 Nuri Bintaro Jaya</p>
                   <p className="text-gray-100 font-serif">Tangerang Selatan, Indonesia 15412</p>
-                  <p className="text-gray-100 font-serif">{translations.contact[language].telephone}</p>
+                  <p className="text-gray-100 font-serif">{translations.about[language].telephone}</p>
                   <p className="text-gray-100 font-serif">Email: info@lvlaw.id</p>
                 </div>
               </motion.div>
@@ -239,12 +239,12 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <h3 className="text-2xl font-serif mb-4 text-white">
-                  {translations.contact[language].hours}
+                  {translations.about[language].hours}
                 </h3>
                 <div className="space-y-2">
-                  <p className="text-gray-100 font-serif">{translations.contact[language].weekdays}</p>
+                  <p className="text-gray-100 font-serif">{translations.about[language].weekdays}</p>
                   <p className="text-gray-100 font-serif">09:00 - 18:00 WIB</p>
-                  <p className="text-gray-100 font-serif">{translations.contact[language].saturday}</p>
+                  <p className="text-gray-100 font-serif">{translations.about[language].saturday}</p>
                   <p className="text-gray-100 font-serif">09:00 - 13:00 WIB</p>
                 </div>
               </motion.div>
