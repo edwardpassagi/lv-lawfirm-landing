@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa'
 import { useLanguage, type Language } from '@/context/LanguageContext'
 import { translations } from '@/translations'
 import Image from 'next/image'
-import { FaWhatsapp } from 'react-icons/fa'
 
 const getNavItems = (language: Language) => [
   { name: translations.nav[language].home, href: '#home' },
@@ -170,9 +169,9 @@ export default function Navbar({ onContactClick }: NavbarProps) {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
-                <XMarkIcon className="h-6 w-6" />
+                <FaTimes className="h-6 w-6" />
               ) : (
-                <Bars3Icon className="h-6 w-6" />
+                <FaBars className="h-6 w-6" />
               )}
             </button>
           </div>

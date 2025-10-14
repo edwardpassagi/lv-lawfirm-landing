@@ -2,30 +2,30 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ScaleIcon, ShieldCheckIcon, UserGroupIcon, GlobeAsiaAustraliaIcon } from '@heroicons/react/24/outline'
-import { FaWhatsapp } from 'react-icons/fa'
+import { FaWhatsapp, FaBalanceScale, FaShieldAlt, FaUsers, FaGlobe } from 'react-icons/fa'
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Background from '@/components/Background'
 import DisclaimerModal from '@/components/DisclaimerModal'
+import AttorneyModal from '@/components/AttorneyModal'
 import { useLanguage } from '@/context/LanguageContext'
 import { translations, attorneys } from '@/translations'
 
 const services = [
   {
-    icon: ScaleIcon,
+    icon: FaBalanceScale,
     key: 'corporate',
   },
   {
-    icon: ShieldCheckIcon,
+    icon: FaShieldAlt,
     key: 'litigation',
   },
   {
-    icon: UserGroupIcon,
+    icon: FaUsers,
     key: 'family',
   },
   {
-    icon: GlobeAsiaAustraliaIcon,
+    icon: FaGlobe,
     key: 'international',
   },
 ] as const
@@ -34,6 +34,8 @@ export default function Home() {
   const { language } = useLanguage()
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false)
   const [disclaimerAction, setDisclaimerAction] = useState<'schedule' | 'contact'>('schedule')
+  const [selectedAttorney, setSelectedAttorney] = useState<typeof attorneys[0] | null>(null)
+  const [isAttorneyModalOpen, setIsAttorneyModalOpen] = useState(false)
 
   const handleScheduleClick = () => {
     setDisclaimerAction('schedule')
@@ -58,6 +60,15 @@ export default function Home() {
       // Open WhatsApp
       window.open('https://wa.me/message/NMAAAO2JPOBCF1', '_blank')
     }
+  }
+
+  const handleAttorneyClick = (attorney: typeof attorneys[0]) => {
+    setSelectedAttorney(attorney)
+    setIsAttorneyModalOpen(true)
+  }
+
+  const handleAttorneyModalClose = () => {
+    setIsAttorneyModalOpen(false)
   }
 
   return (
@@ -148,19 +159,27 @@ export default function Home() {
             {attorneys.map((attorney, idx) => (
               <motion.div
                 key={attorney.name}
-                className="bg-dark/80 rounded-lg shadow-lg border border-primary/20 overflow-hidden flex flex-col h-full"
+                className="bg-dark/80 rounded-lg shadow-lg border border-primary/20 overflow-hidden flex flex-col h-full cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ scale: 1.03, y: -5 }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
                 viewport={{ once: true }}
+                onClick={() => handleAttorneyClick(attorney)}
               >
-                <div className="relative w-full aspect-[3/4]">
-                  <Image
-                    src={attorney.photo}
-                    alt={attorney.name}
-                    fill
-                    className="object-cover object-top"
-                  />
+                <div className="relative w-full aspect-[3/4] overflow-hidden">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full"
+                  >
+                    <Image
+                      src={attorney.photoCard}
+                      alt={attorney.name}
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </motion.div>
                 </div>
                 <div className="p-6 flex flex-col items-center text-center flex-1">
                   <h3 className="text-lg font-serif text-white mb-2">{attorney.name}</h3>
@@ -253,6 +272,14 @@ export default function Home() {
             ? translations.disclaimer[language].continueContact
             : undefined
         }
+      />
+
+      {/* Attorney Detail Modal */}
+      <AttorneyModal
+        isOpen={isAttorneyModalOpen}
+        onClose={handleAttorneyModalClose}
+        attorney={selectedAttorney}
+        language={language}
       />
     </main>
   )

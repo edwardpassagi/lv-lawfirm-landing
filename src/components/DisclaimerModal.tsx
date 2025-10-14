@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { FaTimes } from 'react-icons/fa'
 import { useLanguage } from '@/context/LanguageContext'
 import { translations } from '@/translations'
 
@@ -50,7 +50,7 @@ export default function DisclaimerModal({ isOpen, onClose, onContinue, continueB
                 className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
                 aria-label="Close modal"
               >
-                <XMarkIcon className="w-6 h-6" />
+                <FaTimes className="w-6 h-6" />
               </button>
 
               {/* Content */}
