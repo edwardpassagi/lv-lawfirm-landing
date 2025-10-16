@@ -74,7 +74,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
                 height={32}
                 className="mr-3 rounded-md"
               />
-              Lux Visionem & Partners
+              Lux Visionem<span className={isPastHero ? 'inline max-[370px]:hidden' : ''}> & Partners</span>
             </a>
           </div>
 
