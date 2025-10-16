@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useCallback } from 'react'
-import { useState, useEffect, useDeferredValue } from 'react'
-import { motion, AnimatePresence, useSpring } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa'
 import { useLanguage, type Language } from '@/context/LanguageContext'
 import { translations } from '@/translations'
@@ -52,7 +52,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
     if (language !== newLang) {
       setLanguage(newLang)
     }
-  }, [setLanguage])
+  }, [language, setLanguage])
 
   return (
     <motion.nav
@@ -187,7 +187,6 @@ const LanguageToggle: React.FC<{
   isEN: boolean;
   onToggle: () => void;
 }> = React.memo(function LanguageToggle({ isEN, onToggle }) {
-  console.count("lang toggle mount")
   return (
     <motion.label
       className="relative inline-block w-12 h-6 cursor-pointer"

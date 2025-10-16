@@ -97,29 +97,37 @@ export default function Home() {
               {translations.hero[language].subtitle}
             </motion.p>
             <motion.div
+              key={language}
               className="flex flex-col gap-4 justify-center items-center w-full max-w-sm mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <button
-                className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50 px-6 py-3 rounded-md font-medium transition-all duration-300 font-serif w-full"
+              <motion.button
+                className="bg-white/10 border border-white/30 text-white hover:bg-white/20 hover:border-white/50 px-6 py-3 rounded-md font-medium font-serif w-full"
+                style={{ backdropFilter: 'blur(8px)' }}
                 onClick={handleScheduleClick}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
                 {translations.hero[language].cta}
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={handleContactClick}
-                className="bg-whatsapp/60 backdrop-blur-sm border border-whatsapp/30 text-white hover:bg-whatsapp/90 hover:border-whatsapp/50 px-6 py-3 rounded-md font-medium transition-all duration-300 flex items-center justify-center gap-2 font-serif w-full"
+                className="bg-whatsapp/60 border border-whatsapp/30 text-white hover:bg-whatsapp/90 hover:border-whatsapp/50 px-6 py-3 rounded-md font-medium flex items-center justify-center gap-2 font-serif w-full"
+                style={{ backdropFilter: 'blur(8px)' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
               >
                 <FaWhatsapp className="w-5 h-5" />
                 {translations.nav[language].contactUs}
-              </button>
+              </motion.button>
             </motion.div>
           </motion.div>
         </div>
       </section>
-
       {/* Services Section */}
       <section id="services" className="py-20 bg-dark">
         <div className="container">
