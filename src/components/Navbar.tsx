@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useCallback } from 'react'
+import { useState, useEffect, useDeferredValue } from 'react'
+import { motion, AnimatePresence, useSpring } from 'framer-motion'
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa'
 import { useLanguage, type Language } from '@/context/LanguageContext'
 import { translations } from '@/translations'
@@ -46,48 +47,12 @@ export default function Navbar({ onContactClick }: NavbarProps) {
     })
   }
 
-  const toggleLanguage = () => {
+  const toggleLanguage = useCallback(() => {
     const newLang = language === 'id' ? 'en' : 'id'
     if (language !== newLang) {
       setLanguage(newLang)
     }
-  }
-
-  const LanguageToggle = () => (
-    <motion.button
-      onClick={toggleLanguage}
-      className="relative w-16 h-8 rounded-full bg-dark/20 border border-gray-300 hover:border-white transition-colors duration-200 group"
-      aria-label="Toggle language"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <motion.div
-        className="absolute inset-1 flex"
-        animate={{ justifyContent: language === 'id' ? 'flex-start' : 'flex-end' }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-        <motion.div
-          className="w-6 h-6 bg-white rounded-full"
-          whileHover={{ scale: 1.1 }}
-          layout
-        />
-      </motion.div>
-      <div className="absolute inset-0 flex justify-between items-center px-2 text-sm text-gray-300 font-medium pointer-events-none">
-        <motion.span
-          animate={{ color: language === 'id' ? '#ffffff' : '#9CA3AF' }}
-          transition={{ duration: 0.2 }}
-        >
-          ID
-        </motion.span>
-        <motion.span
-          animate={{ color: language === 'en' ? '#ffffff' : '#9CA3AF' }}
-          transition={{ duration: 0.2 }}
-        >
-          EN
-        </motion.span>
-      </div>
-    </motion.button>
-  )
+  }, [setLanguage])
 
   return (
     <motion.nav
@@ -149,7 +114,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
                 </motion.button>
               )}
             </AnimatePresence>
-            <LanguageToggle />
+            <LanguageToggle isEN={language === 'en'} onToggle={toggleLanguage} />
           </div>
 
           {/* Mobile Actions */}
@@ -208,7 +173,7 @@ export default function Navbar({ onContactClick }: NavbarProps) {
                 <span className="text-base font-medium text-gray-300">
                   {language === 'id' ? 'Bahasa' : 'Language'}
                 </span>
-                <LanguageToggle />
+                <LanguageToggle isEN={language === 'en'} onToggle={toggleLanguage} />
               </div>
             </div>
           </motion.div>
@@ -216,4 +181,39 @@ export default function Navbar({ onContactClick }: NavbarProps) {
       </div>
     </motion.nav>
   )
-} 
+}
+
+const LanguageToggle: React.FC<{
+  isEN: boolean;
+  onToggle: () => void;
+}> = React.memo(function LanguageToggle({ isEN, onToggle }) {
+  console.count("lang toggle mount")
+  return (
+    <motion.label
+      className="relative inline-block w-12 h-6 cursor-pointer"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    >
+      <input
+        type="checkbox"
+        className="opacity-0 w-0 h-0"
+        checked={isEN}
+        onChange={onToggle}
+        aria-label="Toggle language"
+      />
+      <span className="absolute inset-0 bg-primary rounded-full shadow-lg" />
+      <motion.span
+        className="absolute w-6 h-6 bg-white rounded-full shadow-lg"
+        animate={{ x: isEN ? 24 : 0 }}
+        transition={{ x: { type: 'spring', stiffness: 300, damping: 20 } }}
+      />
+      <span className="absolute left-2 top-1 text-xs text-white font-medium pointer-events-none mix-blend-difference">
+        ID
+      </span>
+      <span className="absolute right-1 top-1 text-xs text-white font-medium pointer-events-none mix-blend-difference">
+        EN
+      </span>
+    </motion.label>
+  )
+});
