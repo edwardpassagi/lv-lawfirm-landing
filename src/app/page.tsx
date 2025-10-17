@@ -179,7 +179,7 @@ export default function Home() {
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
-                    className="w-full h-full"
+                    className="relative w-full h-full"
                   >
                     <Image
                       src={attorney.photoCard}
