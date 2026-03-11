@@ -120,16 +120,16 @@ export const attorneys = [
       id: 'Framana berspesialisasi dalam kepatuhan korporasi, urusan regulasi, dan dokumentasi hukum bisnis. Beliau membantu klien dengan masalah tata kelola perusahaan, pengajuan regulasi, dan memastikan kepatuhan terhadap regulasi bisnis Indonesia. Praktiknya mencakup penyusunan dan peninjauan dokumen korporasi, penanganan audit kepatuhan, dan pemberian konsultasi hukum tentang persyaratan regulasi. Framana berdedikasi untuk membantu bisnis mempertahankan kepatuhan hukum sambil mencapai tujuan strategis mereka.'
     }
   },
-  {
-    name: 'Edward Passagi, AES, B.Sc, MCS',
-    position: 'Tech Consultant',
-    photo: '/images/team/edward.jpeg',
-    photoCard: '/images/team/edward-card.jpg',
-    bio: {
-      en: 'Edward is a technology consultant specializing in the intersection of law and digital innovation. With academic background in Computer Science and professional certifications, he provides expert consulting on legal technology implementation, digital transformation strategies, cybersecurity compliance, and technology infrastructure for modern law practices. His unique expertise helps law firms and corporate clients leverage technology to enhance efficiency, security, and service delivery.',
-      id: 'Edward adalah konsultan teknologi yang berspesialisasi dalam persimpangan antara hukum dan inovasi digital. Dengan latar belakang akademis di Ilmu Komputer dan sertifikasi profesional, beliau memberikan konsultasi ahli tentang implementasi teknologi hukum, strategi transformasi digital, kepatuhan keamanan siber, dan infrastruktur teknologi untuk praktik hukum modern. Keahlian unik beliau membantu firma hukum dan klien korporasi memanfaatkan teknologi untuk meningkatkan efisiensi, keamanan, dan penyampaian layanan.'
-    }
-  },
+  // {
+  //   name: 'Edward Passagi, AES, B.Sc, MCS',
+  //   position: 'Tech Consultant',
+  //   photo: '/images/team/edward.jpeg',
+  //   photoCard: '/images/team/edward-card.jpg',
+  //   bio: {
+  //     en: 'Edward is a technology consultant specializing in the intersection of law and digital innovation. With academic background in Computer Science and professional certifications, he provides expert consulting on legal technology implementation, digital transformation strategies, cybersecurity compliance, and technology infrastructure for modern law practices. His unique expertise helps law firms and corporate clients leverage technology to enhance efficiency, security, and service delivery.',
+  //     id: 'Edward adalah konsultan teknologi yang berspesialisasi dalam persimpangan antara hukum dan inovasi digital. Dengan latar belakang akademis di Ilmu Komputer dan sertifikasi profesional, beliau memberikan konsultasi ahli tentang implementasi teknologi hukum, strategi transformasi digital, kepatuhan keamanan siber, dan infrastruktur teknologi untuk praktik hukum modern. Keahlian unik beliau membantu firma hukum dan klien korporasi memanfaatkan teknologi untuk meningkatkan efisiensi, keamanan, dan penyampaian layanan.'
+  //   }
+  // },
 ]
 
 export const translations = {
