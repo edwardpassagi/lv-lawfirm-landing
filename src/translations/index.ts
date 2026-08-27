@@ -120,6 +120,16 @@ export const attorneys = [
       id: 'Framana berspesialisasi dalam kepatuhan korporasi, urusan regulasi, dan dokumentasi hukum bisnis. Beliau membantu klien dengan masalah tata kelola perusahaan, pengajuan regulasi, dan memastikan kepatuhan terhadap regulasi bisnis Indonesia. Praktiknya mencakup penyusunan dan peninjauan dokumen korporasi, penanganan audit kepatuhan, dan pemberian konsultasi hukum tentang persyaratan regulasi. Framana berdedikasi untuk membantu bisnis mempertahankan kepatuhan hukum sambil mencapai tujuan strategis mereka.'
     }
   },
+  {
+    name: 'Fikri Abirawa Rizki Selo, S.H.',
+    position: 'Associate',
+    photo: '/images/team/abirawa.jpeg',
+    photoCard: '/images/team/abirawa-card.jpeg',
+    bio: {
+      en: 'Fikri Abirawa is a law graduate of Universitas Gadjah Mada with a concentration in Constitutional Law, complemented by studies at The Hague Academy of International Law and the Advocates Professional Special Education (PKPA) certification from PERADI. He brings experience as a Junior Associate in corporate practice—covering general corporate matters, labor law, mergers and acquisitions, industrial and trade law—as well as in-house legal and compliance roles focused on OJK regulations and commercial contracting. His practice emphasizes corporate advisory, regulatory compliance, contract drafting, and practical legal solutions for business clients.',
+      id: 'Fikri Abirawa adalah lulusan hukum Universitas Gadjah Mada dengan konsentrasi Hukum Tata Negara, dilengkapi studi di The Hague Academy of International Law serta sertifikasi Pendidikan Khusus Profesi Advokat (PKPA) dari PERADI. Beliau membawa pengalaman sebagai Junior Associate dalam praktik korporasi—mencakup urusan korporasi umum, hukum ketenagakerjaan, merger dan akuisisi, hukum industri dan perdagangan—serta peran legal dan kepatuhan in-house yang berfokus pada regulasi OJK dan kontrak komersial. Praktiknya menekankan konsultasi korporasi, kepatuhan regulasi, penyusunan kontrak, dan solusi hukum praktis bagi klien bisnis.'
+    }
+  },
   // {
   //   name: 'Edward Passagi, AES, B.Sc, MCS',
   //   position: 'Tech Consultant',
