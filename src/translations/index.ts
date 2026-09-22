@@ -71,23 +71,13 @@ interface AttorneysTranslations {
 export const attorneys = [
   {
     name: 'Dr. Hendrikus Passagi, S.Sos., S.H., M.H., M.Sc., CFTP., CIMBA., C.Med',
-    position: 'Of Counsel & Business Consultant',
+    position: 'Partner & Business Consultant',
     photo: '/images/team/hendrikus.jpeg',
     photoCard: '/images/team/hendrikus-card.jpeg',
     bio: {
       en: 'Dr. Hendrikus holds a Doctor degree in Finance and Master of Science in Finance, complemented by his law degree and extensive certifications. With distinguished experience as former Director of Financial Technology Licensing and Supervision at the Financial Services Authority (OJK), he brings exceptional expertise in fintech regulation, corporate law, and business strategy. He specializes in financial technology, corporate governance, regulatory compliance, and serves as independent commissioner for various corporations.',
       id: 'Dr. Hendrikus memegang gelar Doktor di bidang Keuangan dan Master of Science in Finance, dilengkapi dengan gelar hukum dan berbagai sertifikasi profesional. Dengan pengalaman terkemuka sebagai mantan Direktur Perizinan dan Pengawasan Teknologi Finansial di Otoritas Jasa Keuangan (OJK), beliau membawa keahlian luar biasa dalam regulasi fintech, hukum korporasi, dan strategi bisnis. Beliau berspesialisasi dalam teknologi finansial, tata kelola perusahaan, kepatuhan regulasi, dan menjabat sebagai komisaris independen untuk berbagai korporasi.'
 
-    }
-  },
-  {
-    name: 'Fikri Abirawa Rizki Selo, S.H.',
-    position: 'Of Counsel',
-    photo: '/images/team/abirawa.jpeg',
-    photoCard: '/images/team/abirawa-card.jpeg',
-    bio: {
-      en: 'Fikri Abirawa is a law graduate of Universitas Gadjah Mada with a concentration in Constitutional Law, complemented by studies at The Hague Academy of International Law and the Advocates Professional Special Education (PKPA) certification from PERADI. He brings experience as a Junior Associate in corporate practice—covering general corporate matters, labor law, mergers and acquisitions, industrial and trade law—as well as in-house legal and compliance roles focused on OJK regulations and commercial contracting. His practice emphasizes corporate advisory, regulatory compliance, contract drafting, and practical legal solutions for business clients.',
-      id: 'Fikri Abirawa adalah lulusan hukum Universitas Gadjah Mada dengan konsentrasi Hukum Tata Negara, dilengkapi studi di The Hague Academy of International Law serta sertifikasi Pendidikan Khusus Profesi Advokat (PKPA) dari PERADI. Beliau membawa pengalaman sebagai Junior Associate dalam praktik korporasi—mencakup urusan korporasi umum, hukum ketenagakerjaan, merger dan akuisisi, hukum industri dan perdagangan—serta peran legal dan kepatuhan in-house yang berfokus pada regulasi OJK dan kontrak komersial. Praktiknya menekankan konsultasi korporasi, kepatuhan regulasi, penyusunan kontrak, dan solusi hukum praktis bagi klien bisnis.'
     }
   },
   {
@@ -98,6 +88,16 @@ export const attorneys = [
     bio: {
       en: 'A distinguished Partner at the firm, Zhafran brings extensive expertise in civil litigation, commercial disputes, and corporate legal matters. His practice encompasses contract law, business transactions, and dispute resolution. With a strategic approach to complex legal challenges, he has successfully represented clients in high-stakes litigation and provides comprehensive legal counsel to businesses across various industries.',
       id: 'Sebagai Partner terkemuka di firma ini, Zhafran membawa keahlian luas dalam litigasi perdata, sengketa komersial, dan urusan hukum korporasi. Praktiknya mencakup hukum kontrak, transaksi bisnis, dan penyelesaian sengketa. Dengan pendekatan strategis terhadap tantangan hukum yang kompleks, beliau telah berhasil mewakili klien dalam litigasi berisiko tinggi dan memberikan konsultasi hukum komprehensif kepada bisnis di berbagai industri.'
+    }
+  },
+  {
+    name: 'Fikri Abirawa Rizki Selo, S.H.',
+    position: 'Of Counsel',
+    photo: '/images/team/abirawa.jpeg',
+    photoCard: '/images/team/abirawa-card.jpeg',
+    bio: {
+      en: 'Fikri Abirawa is a law graduate of Universitas Gadjah Mada with a concentration in Constitutional Law, complemented by studies at The Hague Academy of International Law and the Advocates Professional Special Education (PKPA) certification from PERADI. He brings experience as a Junior Associate in corporate practice—covering general corporate matters, labor law, mergers and acquisitions, industrial and trade law—as well as in-house legal and compliance roles focused on OJK regulations and commercial contracting. His practice emphasizes corporate advisory, regulatory compliance, contract drafting, and practical legal solutions for business clients.',
+      id: 'Fikri Abirawa adalah lulusan hukum Universitas Gadjah Mada dengan konsentrasi Hukum Tata Negara, dilengkapi studi di The Hague Academy of International Law serta sertifikasi Pendidikan Khusus Profesi Advokat (PKPA) dari PERADI. Beliau membawa pengalaman sebagai Junior Associate dalam praktik korporasi—mencakup urusan korporasi umum, hukum ketenagakerjaan, merger dan akuisisi, hukum industri dan perdagangan—serta peran legal dan kepatuhan in-house yang berfokus pada regulasi OJK dan kontrak komersial. Praktiknya menekankan konsultasi korporasi, kepatuhan regulasi, penyusunan kontrak, dan solusi hukum praktis bagi klien bisnis.'
     }
   },
   {
